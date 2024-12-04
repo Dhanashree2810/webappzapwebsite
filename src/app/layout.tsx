@@ -2,10 +2,18 @@
 import "@/app/globals.css";
 import HeaderSection from "@/components/custom/header/HeaderSection";
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import SocialNetworkSection from "./pages/home/SocialNetworkSection";
 import BlankSection from "./pages/home/BlankSection";
 import FooterSection from "@/components/custom/footer/FooterSection";
 import ClientLoaderWrapper from "@/components/custom/ClientLoaderWrapper";
+
+const interFont = localFont({
+  src: "./fonts/SourceSansPro-Regular.ttf.woff2",
+  variable: "--font-inter",
+  weight: "100 900",
+});
+
 
 export const metadata: Metadata = {
   title: {
@@ -38,20 +46,20 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${interFont.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style data-href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
         </style>
       </head>
       <body className="antialiased font-inter">
-        <ClientLoaderWrapper>
+        {/* <ClientLoaderWrapper> */}
           <HeaderSection />
           {children}
           <SocialNetworkSection />
           <BlankSection />
           <FooterSection />
-        </ClientLoaderWrapper>
+        {/* </ClientLoaderWrapper> */}
       </body>
     </html>
   );

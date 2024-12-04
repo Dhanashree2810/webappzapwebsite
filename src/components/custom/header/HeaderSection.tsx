@@ -50,14 +50,16 @@ export default function HeaderSection() {
         <header className={`fixed w-full top-0 left-0 z-50 ${navbarFixed ? ' bg-black' : 'bg-[#0d131f1a]'}`}>
             <div className="container mx-auto lg:px-28 sm:px-14 md:px-16 py-3">
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center">
+                    <div className="flex items-center ml-4">
                         <Link href="/" aria-label="Home" className="text-2xl font-bold text-gray-800 dark:text-white">
                             <Image
                                 src={webappzaplogo}
                                 alt="WebAppZap Logo"
                                 height={160}
                                 width={160}
-                                priority
+                                // priority
+                                layout="responsive"
+                                loading='lazy'
                             />
                         </Link>
                     </div>

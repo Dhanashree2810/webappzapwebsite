@@ -64,7 +64,7 @@ export const ServicesSection = ({ pathname }: ServicesSectionProps) => {
     return (
         <section
             className="relative bg-[#00001d] bg-fixed bg-cover bg-center bg-blend-color-dodge overflow-hidden py-12 md:py-16 lg:py-20"
-            style={{ backgroundImage: `url(${servicebg.src})` }}
+            style={{ backgroundImage: `url(${servicebg.src})`}}
         >
             <div className="container mx-auto px-4 text-center" data-aos="fade-up" data-aos-duration="3000">
                 <div className="lg:py-10 sm:py-8 md:px-6 lg:px-12">
