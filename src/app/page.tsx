@@ -14,9 +14,12 @@ export default function Home() {
       <div>
         <HeroSection />
         <AboutSection />
-        <ServicesSection pathname={pathname} />
+        <ServicesSection pathname={pathname} />         
         <WhyUsSection />
+        {/* WhyUsSection 92 */}
         <SolutionsSection />
+        {/* solutions 89 */}
+
       </div>
     </>
   );

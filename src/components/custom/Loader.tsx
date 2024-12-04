@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loader = () => {
     return (
-        <div
+        <section
             id="loader"
             className="min-h-screen w-screen fixed top-0 left-0 z-50 flex justify-center items-center bg-white"
         >
@@ -12,7 +12,7 @@ const Loader = () => {
                     Digitalisation is the <br /> Future
                 </span>
             </div>
-        </div>
+        </section>
     );
 };
 

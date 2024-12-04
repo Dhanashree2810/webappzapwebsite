@@ -14,7 +14,7 @@ interface ServiceCardProps {
 }
 
 export const ServiceCard = ({ service }: ServiceCardProps) => (
-    <Card   className="bg-[#00001dbf] py-8 lg:py-16 md:py-12 sm:py-10 px-4 lg:px-8 md:px-6 sm:px-5 mt-10 border border-dashed border-[#3e047b] hover:border-[#ff1b46] hover:shadow-xl transition-transform transform hover:-translate-y-2 rounded-lg relative overflow-hidden cursor-pointer backdrop-blur-sm">
+    <Card  className="bg-[#00001dbf] py-8 lg:py-16 md:py-12 sm:py-10 px-4 lg:px-8 md:px-6 sm:px-5 mt-10 border border-dashed border-[#3e047b] hover:border-[#ff1b46] hover:shadow-xl transition-transform transform hover:-translate-y-2 rounded-lg relative overflow-hidden cursor-pointer backdrop-blur-sm">
         <div className="text-center z-10">
             <Image
                 src={service.imageSrc}

@@ -36,7 +36,7 @@ const AboutSection = () => {
                 Who We Are
               </h2>
               <p
-                className="text-white mt-6 mb-12 text-xs lg:text-xs leading-6 lg:leading-7 font-normal"
+                className="text-white mt-6 mb-12 text-xs lg:text-[13px] leading-6 lg:leading-7 font-medium"
                 data-aos="fade-up"
               >
                 WebAppZap is modelized with a vision to provide a Software Development, web application development, Digital Marketing, IOT and Mobile App Development company with experienced IT consultants who can offer valuable business solutions. We help you and your business connect with customers, integrate with vendors and empower employees to work to their fullest potential.
@@ -50,7 +50,7 @@ const AboutSection = () => {
                   { count: '120+', label: 'Top Partners' },
                 ].map((item, idx) => (
                   <div key={idx} className="text-center" data-aos="fade-up" data-aos-duration={`${1500 + idx * 200}`}>
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#ff1b46] mb-2">{item.count}</h3>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl italic font-bold text-[#ff1b46] mb-2">{item.count}</h3>
                     <span className="text-white text-xs font-normal">{item.label}</span>
                   </div>
                 ))}
@@ -62,7 +62,7 @@ const AboutSection = () => {
                 data-aos="fade-up"
                 data-aos-duration="2000"
               >
-                <span className="btn primary-btn inline-flex items-center text-sm lg:text-lg px-3 py-3 lg:px-4 lg:py-3 text-white bg-[#ff1b46] rounded-lg hover:bg-blue-950 transition">
+                <span className="btn primary-btn inline-flex items-center text-sm lg:text-[16px] px-3 py-3 lg:px-4 lg:py-4 text-white bg-[#ff1b46] rounded-lg hover:bg-blue-950 transition">
                   Know More <RiArrowRightUpFill className="text-white w-5 h-5 ml-2" />
                 </span>
               </Link>
