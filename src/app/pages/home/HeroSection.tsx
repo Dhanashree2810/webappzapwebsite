@@ -25,23 +25,18 @@ export default function HeroSection() {
             typeSpeed: 150,
             backSpeed: 150,
             loop: true,
-            onComplete: () => {
-                typed1Ref.current?.reset();
-            }
+            backDelay: 1000,
         };
 
         typed1Ref.current = new Typed(".typing-element", options1);
 
-
         const options2 = {
-            strings: ["Dreams ^4000", "Business ^1000"],
+            strings: ["Dreams ^4000", "Business ^3000"],
             typeSpeed: 150,
             backSpeed: 150,
             loop: true,
-            startDelay: 3000,
-            onComplete: () => {
-                typed2Ref.current?.reset();
-            }
+            startDelay: 2000,
+            backDelay: 1000,
         };
 
         typed2Ref.current = new Typed(".typing-elements", options2);
@@ -54,7 +49,7 @@ export default function HeroSection() {
 
     return (
         <section className="relative  bg-fixed bg-cover bg-center" style={{ backgroundImage: `url(${herobg.src})` }}>
-            <div className='container  relative py-8 lg:py-14 px-4 lg:px-24'>
+            <div className=' relative py-8 lg:py-14 px-4 lg:px-24'>
                 <div className="absolute inset-0 bg-[#00001d]  bg-opacity-50 z-10"></div>
 
                 <span className="icon absolute top-96 right-32 lg:top-[600px] lg:right-64">
@@ -76,7 +71,7 @@ export default function HeroSection() {
                     <Image src={icon6} alt="icon6" width={20} height={20} className="animate-spin" style={{ animationDuration: '5s', animationTimingFunction: 'linear' }} />
                 </span>
 
-                <div className="container relative z-20">
+                <div className="relative z-20">
                     <div className="grid gap-2 lg:gap-20 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1  items-center justify-between mt-8">
                         <div className="flex flex-col">
                             <Image
@@ -92,11 +87,11 @@ export default function HeroSection() {
                             <div className="flex-container relative z-20 px-2 lg:px-10 text-white">
                                 <div className="flex-content">
                                     <div className="text-content">
-                                        <h1 className="text-4xl lg:text-7xl italic font-extrabold text-main text-[#e7f1ff] capitalize tracking-tight leading-6">
-                                            We <span className="typing-element text-red-500 text-shadow-lg"></span>
+                                        <h1 className="text-4xl lg:text-[62px] italic font-extrabold text-main text-[#e7f1ff] capitalize tracking-tight leading-8">
+                                            We <span className="typing-element text-[#FF1B46] text-shadow-lg"></span>
                                         </h1>
-                                        <h1 className="text-4xl lg:text-7xl italic font-extrabold  text-[#e7f1ff] text-main capitalize tracking-tight leading-6 mt-5 lg:mt-8">
-                                            your <span className="typing-elements text-red-500 text-shadow-lg"></span>
+                                        <h1 className="text-4xl lg:text-[62px] italic font-extrabold  text-[#e7f1ff] text-main capitalize tracking-tight leading-8 mt-5 lg:mt-8">
+                                            your <span className="typing-elements text-[#FF1B46] text-shadow-lg"></span>
                                         </h1>
                                     </div>
 
@@ -106,7 +101,7 @@ export default function HeroSection() {
                                         </p>
 
                                         <Link href="/services" className=' flex flex-row w-fit mt-0 lg:mt-10'>
-                                            <span className="btn primary-btn inline-flex items-center text-sm lg:text-lg px-1 py-2 lg:px-4 lg:py-3 text-white  bg-[#ff1b46] rounded-lg hover:bg-blue-950 transition">
+                                            <span className="btn primary-btn inline-flex items-center text-sm lg:text-[16px] px-1 py-2 lg:px-4 lg:py-4 text-white  bg-[#ff1b46] rounded-lg hover:bg-blue-950 transition">
                                                 Get Started <RiArrowRightUpFill className=' text-white w-6 h-6' />
                                             </span>
                                         </Link>
@@ -117,13 +112,13 @@ export default function HeroSection() {
                     </div>
                 </div>
 
-                <div className="absolute top-1/2 -left-16 transform -translate-y-1/2 bg-[#1e2c61a8] z-30 py-2 hidden lg:block">
+                <div className="hidden lg:block left-5 absolute top-[40%]  transform -translate-y-[40%] bg-[#1e2c61a8] z-30 py-3 rounded-r-lg">
                     <a
                         href="https://www.facebook.com/Webappzap-Enterprise-107215775394142/"
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Follow Us On Facebook"
-                        className="text-white text-lg p-3 block transition-all duration-1000 ease-out hover:text-[#ff1b46]"
+                        className="text-white text-[16px] p-3 block transition-all duration-1000 ease-out hover:text-[#ff1b46]"
                     >
                         <FaFacebookF />
                     </a>
@@ -132,7 +127,7 @@ export default function HeroSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Follow Us On Twitter"
-                        className="text-white text-lg p-3 block transition-all duration-1000 ease-out hover:text-[#ff1b46]"
+                        className="text-white text-[16px] p-3 block transition-all duration-1000 ease-out hover:text-[#ff1b46]"
                     >
                         <FaTwitter />
                     </a>
@@ -141,7 +136,7 @@ export default function HeroSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Follow Us On Instagram"
-                        className="text-white text-lg p-3 block transition-all duration-1000 ease-out hover:text-[#ff1b46]"
+                        className="text-white text-[16px] p-3 block transition-all duration-1000 ease-out hover:text-[#ff1b46]"
                     >
                         <FaInstagram />
                     </a>
@@ -150,7 +145,7 @@ export default function HeroSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Follow Us On LinkedIn"
-                        className="text-white text-lg p-3 block transition-all duration-1000 ease-out hover:text-[#ff1b46]"
+                        className="text-white text-[16px] p-3 block transition-all duration-1000 ease-out hover:text-[#ff1b46]"
                     >
                         <FaLinkedin />
                     </a>

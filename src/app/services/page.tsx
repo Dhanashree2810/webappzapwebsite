@@ -1,13 +1,11 @@
-'use client'
-import { ServicesSection } from '../pages/home/ServiceSection'
-import { usePathname } from 'next/navigation';
+// ./src/app/services/page.tsx
+import ServicesPageClient from './ServicesPageClient';
+
+export const metadata = {
+  title: "Our Services - WebAppZap",
+  description: "Discover the services offered by WebAppZap.",
+};
 
 export default function ServicesPage() {
-  const pathname = usePathname();
-
-  return (
-    <div>
-      <ServicesSection pathname={pathname}/>
-    </div>
-  )
+  return <ServicesPageClient />;
 }

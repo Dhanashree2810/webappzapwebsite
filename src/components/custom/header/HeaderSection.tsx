@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react'
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import Link from 'next/link'
-import { Menu } from 'lucide-react'
+// import { Menu } from 'lucide-react'
+import { SlMenu } from "react-icons/sl";
 import { Button } from '@/components/ui/button'
 import {
     Sheet,
@@ -19,7 +20,7 @@ const navItems = [
     { href: '/about', label: 'About Us' },
     { href: '/services', label: 'Services' },
     { href: '/contact', label: 'Contact' },
-]
+];
 
 export default function HeaderSection() {
     const [isOpen, setIsOpen] = useState(false);
@@ -46,11 +47,11 @@ export default function HeaderSection() {
     };
 
     return (
-        <nav className={`fixed w-full top-0 left-0 z-50 ${navbarFixed ? ' bg-black' : 'bg-[#0d131f1a]'}`}>
+        <header className={`fixed w-full top-0 left-0 z-50 ${navbarFixed ? ' bg-black' : 'bg-[#0d131f1a]'}`}>
             <div className="container mx-auto lg:px-28 sm:px-14 md:px-16 py-3">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                        <Link href="/" className="text-2xl font-bold text-gray-800 dark:text-white">
+                        <Link href="/" aria-label="Home" className="text-2xl font-bold text-gray-800 dark:text-white">
                             <Image
                                 src={webappzaplogo}
                                 alt="WebAppZap Logo"
@@ -60,25 +61,24 @@ export default function HeaderSection() {
                             />
                         </Link>
                     </div>
-                    <div className="hidden md:block">
-                        <div className="flex items-center space-x-4">
-                            {navItems.map((item) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className={`nav-link text-white uppercase text-xSmallFont pb-2 font-semibold ${isActive(item.href) ? 'border-b-2 border-red-500' : ''}`}
-                                >
-                                    {item.label}
-                                </Link>
-                            ))}
-                        </div>
+                    <div className="hidden md:flex items-center space-x-4">
+                        {navItems.map((item) => (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={`nav-link text-white uppercase text-xs pb-2 font-semibold ${isActive(item.href) ? 'border-b-2 border-red-500' : ''}`}
+                                aria-current={isActive(item.href) ? 'page' : undefined}
+                            >
+                                {item.label}
+                            </Link>
+                        ))}
                     </div>
 
                     <div className="md:hidden lg:px-0 px-3">
                         <Sheet open={isOpen} onOpenChange={setIsOpen}>
                             <SheetTrigger asChild className='headermenu'>
                                 <Button variant="default" size="icon" className={`relative z-50 text-white  border-white   ${navbarFixed ? ' bg-black' : 'bg-[#0d131f1a]'}`}>
-                                    <Menu  size={50} className=" text-5xl text-white" />
+                                    <SlMenu size={60} className=" text-white" />
                                     <span className="sr-only">Toggle navigation menu</span>
                                 </Button>
                             </SheetTrigger>
@@ -91,8 +91,9 @@ export default function HeaderSection() {
                                         <Link
                                             key={item.href}
                                             href={item.href}
-                                            className={`text-white pb-2 uppercase text-xSmallFont font-semibold w-fit  dark:hover:text-gray-300 ${isActive(item.href) ? 'border-b-2 border-red-500' : ''}`}
+                                            className={`text-white pb-2 uppercase text-xs font-semibold w-fit  dark:hover:text-gray-300 ${isActive(item.href) ? 'border-b-2 border-red-500' : ''}`}
                                             onClick={() => setIsOpen(false)}
+                                            aria-current={isActive(item.href) ? 'page' : undefined}
                                         >
                                             {item.label}
                                         </Link>
@@ -103,6 +104,6 @@ export default function HeaderSection() {
                     </div>
                 </div>
             </div>
-        </nav>
+        </header>
     )
 }
