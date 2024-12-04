@@ -6,7 +6,7 @@ import localFont from "next/font/local";
 import SocialNetworkSection from "./pages/home/SocialNetworkSection";
 import BlankSection from "./pages/home/BlankSection";
 import FooterSection from "@/components/custom/footer/FooterSection";
-import ClientLoaderWrapper from "@/components/custom/ClientLoaderWrapper";
+// import ClientLoaderWrapper from "@/components/custom/ClientLoaderWrapper";
 
 const interFont = localFont({
   src: "./fonts/SourceSansPro-Regular.ttf.woff2",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   description: "Explore WebAppZap, your solution for amazing web experiences.",
   metadataBase: new URL('https://webappzap.com'),
-  keywords: "Web ,WebAppZap",
+  keywords: "Innovative Web Development Services,Responsive Website Design Solutions,Responsive Web Design Services,Next.js Web Development,Fast & Secure Web Hosting Solution,Advance Web Technolgies,Web Development Solution,How to build a Modern Web App,Web Application that scale your Bussiness,Professional Website Design, Best Web Developers Near me,User-centric Web Solution,Next Generation Website Developement,Innovative",
   openGraph: {
     title: "WebAppZap",
     description: "Explore WebAppZap, your solution for amazing web experiences.",

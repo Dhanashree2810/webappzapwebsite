@@ -87,7 +87,7 @@ export const ServicesSection = ({ pathname }: ServicesSectionProps) => {
 
                     <div className="mt-8 md:mt-10 lg:mt-12">
                         {pathname === '/' && (
-                            <Link href="https://www.webappzap.com">
+                            <Link href='/services'>
                                 <span className="btn btn-secondary text-indigo-950 bg-white py-3 px-6 md:py-4 md:px-8 rounded-md text-sm md:text-base font-semibold">
                                     Explore All Services
                                 </span>
