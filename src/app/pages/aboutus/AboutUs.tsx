@@ -22,9 +22,7 @@ const AboutUs = () => {
       typeSpeed: 150,
       backSpeed: 150,
       loop: true,
-      onComplete: () => {
-        typed1Ref.current?.reset();
-      }
+      backDelay: 1000,
     };
 
     typed1Ref.current = new Typed(".typing-element", options1);
@@ -62,13 +60,17 @@ const AboutUs = () => {
                   className="mx-auto"
                   height={500}
                   width={500}
+                  quality={75}
+                  // priority
+                  layout="responsive"
+                  loading="lazy"
                 />
-                <div className="absolute bottom-8 right-8 bg-primaryRed px-3 py-2 text-white transform rotate-90 lg:rotate-0 lg:-right-20">
-                  <h1 className='text-xs text-center'>16+ YEARS OF EXPERIENCE</h1>
+                <div className="absolute bottom-8 right-8 bg-primaryRed px-3 py-2 text-white transform rotate-90 lg:rotate-0 lg:-right-20 hidden lg:block">
+                  <h1 className="text-xs text-center">16+ YEARS OF EXPERIENCE</h1>
                 </div>
               </div>
 
-              <div className="flex flex-col text-center lg:text-left">
+              <div className="flex flex-col text-left">
                 <div className="lg:p-8 md:p-2 sm:p-2 lg:mt-16 mt-5">
                   <div className="text-content">
                     <h2 className="text-white text-xl lg:text-4xl font-semibold italic tracking-tight leading-tight">
@@ -87,7 +89,7 @@ const AboutUs = () => {
                 <span className="border-b-2 border-red-500 pb-2">About Us</span>
               </h3>
 
-              <p className="text-white text-xs lg:text-sm mt-4 font-normal leading-5 lg:leading-7 mx-auto max-w-xl lg:max-w-2xl lg:mx-0">
+              <p className="text-white text-xs lg:text-[13px] mt-4 font-medium leading-6 lg:leading-7 mx-auto max-w-xl lg:max-w-2xl lg:mx-0">
                 WebAppZap is modelized with a vision to provide Software Development, web application development, Digital Marketing, IOT, and Mobile App Development solutions. With experienced IT consultants, we help you and your business connect with customers, integrate with vendors, and empower employees to work to their fullest potential.
               </p>
             </div>
@@ -105,10 +107,10 @@ const AboutUs = () => {
                   data-aos="fade-up"
                   data-aos-duration={`${1500 + idx * 200}`}
                 >
-                  <h3 className="text-primaryRed text-3xl lg:text-5xl font-bold italic mb-5">
+                  <h3 className="text-primaryRed text-[40px] font-bold italic mb-5">
                     {item.count}
                   </h3>
-                  <span className="text-white text-sm font-normal">{item.label}</span>
+                  <span className="text-white text-[13px] font-normal">{item.label}</span>
                 </div>
               ))}
             </div>

@@ -9,7 +9,7 @@ import icon4 from '@/assets/img/icon4.png';
 import icon5 from '@/assets/img/icon5.png';
 import icon6 from '@/assets/img/icon6.png';
 import Image from 'next/image';
-import herobg from '@/assets/img/hero.c51d34afe665b83720fc.jpg'
+import herobg from '@/assets/img/herobg.jpg'
 import { RiArrowRightUpFill } from "react-icons/ri";
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';

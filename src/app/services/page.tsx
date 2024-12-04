@@ -1,4 +1,3 @@
-// ./src/app/services/page.tsx
 import ServicesPageClient from './ServicesPageClient';
 
 export const metadata = {
@@ -7,5 +6,9 @@ export const metadata = {
 };
 
 export default function ServicesPage() {
-  return <ServicesPageClient />;
+  return (
+    <>
+      <ServicesPageClient />
+    </>
+  );
 }

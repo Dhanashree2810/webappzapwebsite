@@ -1,4 +1,4 @@
-// ./src/app/services/ServicesPageClient.tsx
+
 'use client';
 
 import { ServicesSection } from '../pages/home/ServiceSection';
