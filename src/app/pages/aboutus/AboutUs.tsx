@@ -53,25 +53,29 @@ const AboutUs = () => {
         <div className="container mx-auto px-4">
           <div className="lg:px-20 md:px-5 sm:px-5">
             <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 py-5 lg:py-10 px-4 md:px-8">
-              <div className="flex flex-col relative lg:mb-6 mb-0">
-                <Image
-                  src={aboutusmain}
-                  alt="About Us"
-                  className="mx-auto"
-                  height={500}
-                  width={500}
-                  quality={75}
-                  // priority
-                  layout="responsive"
-                  loading="lazy"
-                />
-                <div className="absolute bottom-8 right-8 bg-primaryRed px-3 py-2 text-white transform rotate-90 lg:rotate-0 lg:-right-20 hidden lg:block">
-                  <h1 className="text-xs text-center">16+ YEARS OF EXPERIENCE</h1>
+              <div className="flex flex-col relative lg:my-10 mb-0">
+                <div className="relative">
+                  <Image
+                    src={aboutusmain}
+                    alt="About Us"
+                    className="mx-auto"
+                    height={350}
+                    width={350}
+                    quality={75}
+                    // priority
+                    layout="responsive"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="absolute -right-72 bottom-20 hidden lg:block">
+                  <div className="bg-red-600 px-6 py-3 text-white transform -rotate-90 origin-bottom-left whitespace-nowrap">
+                    <h1 className="text-xs font-medium tracking-wider">16+ YEARS OF EXPERIENCE</h1>
+                  </div>
                 </div>
               </div>
 
               <div className="flex flex-col text-left">
-                <div className="lg:p-8 md:p-2 sm:p-2 lg:mt-16 mt-5">
+                <div className="lg:p-16 md:p-2 sm:p-2 lg:mt-16 mt-5">
                   <div className="text-content">
                     <h2 className="text-white text-xl lg:text-4xl font-semibold italic tracking-tight leading-tight">
                       We Are a
