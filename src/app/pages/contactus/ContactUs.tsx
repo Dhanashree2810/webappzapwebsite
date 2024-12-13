@@ -13,7 +13,7 @@ type ValidationErrors = Record<string, string>;
 const ContactUs = () => {
   const [form, setForm] = useState({
     name: '',
-    email: '',
+    emailId: '',
     mobileNo: '',
     message: '',
   });
@@ -29,7 +29,7 @@ const ContactUs = () => {
     try {
       globalschema.parse({
         name: form.name,
-        email: form.email,
+        email: form.emailId,
         mobile: form.mobileNo,
         message: form.message,
       });
@@ -55,7 +55,7 @@ const ContactUs = () => {
       try {
         await axios.post('https://api-accnt.wazl.in/ContactUs/Add', form);
         setContactSuccess(true);
-        setForm({ name: '', email: '', mobileNo: '', message: '' });
+        setForm({ name: '', emailId: '', mobileNo: '', message: '' });
         setTimeout(() => setContactSuccess(false), 3000);
       } catch (error) {
         console.error('Form submission error:', error);
@@ -91,7 +91,7 @@ const ContactUs = () => {
                       id="validationName"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Please Enter Your Name *"
+                      placeholder="Please Enter Your Name"
                       className="w-full border-gray-300 rounded-none"
                     />
                     {errors.name && (
@@ -104,11 +104,11 @@ const ContactUs = () => {
                       Email *
                     </Label>
                     <Input
-                      type="email"
-                      name="email"
+                      type="emailId"
+                      name="emailId"
                       id="validationEmail"
                       placeholder="Please Enter Your Email"
-                      value={form.email}
+                      value={form.emailId}
                       onChange={handleChange}
                       className="w-full border-gray-300 rounded-none"
                     />
@@ -149,7 +149,7 @@ const ContactUs = () => {
                       name="message"
                       id="validationMessage"
                       maxLength={160}
-                      placeholder="Write Your Message *"
+                      placeholder="Write Your Message"
                       rows={6}
                       value={form.message}
                       onChange={handleChange}
