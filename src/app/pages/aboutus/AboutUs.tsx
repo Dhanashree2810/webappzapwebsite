@@ -53,7 +53,7 @@ const AboutUs = () => {
         <div className="container mx-auto px-4">
           <div className="lg:px-20 md:px-5 sm:px-5">
             <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 py-5 lg:py-10 px-4 md:px-8">
-              <div className="flex flex-col relative lg:my-10 mb-0">
+              <div className="flex flex-col relative lg:my-10 lg:mx-10 mb-0">
                 <div className="relative">
                   <Image
                     src={aboutusmain}

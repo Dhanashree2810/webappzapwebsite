@@ -55,8 +55,8 @@ export default function HeaderSection() {
                             <Image
                                 src={webappzaplogo}
                                 alt="WebAppZap Logo"
-                                height={160}
-                                width={160}
+                                height={140}
+                                width={140}
                                 // priority
                                 layout="responsive"
                                 loading='lazy'
