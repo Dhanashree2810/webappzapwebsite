@@ -19,9 +19,12 @@ const ContactUs = () => {
   });
   const [contactSuccess, setContactSuccess] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm(prevForm => ({ ...prevForm, [name]: value }));
+    setErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
   };
 
 
@@ -29,8 +32,8 @@ const ContactUs = () => {
     try {
       globalschema.parse({
         name: form.name,
-        email: form.emailId,
-        mobile: form.mobileNo,
+        emailId: form.emailId,
+        mobileNo: form.mobileNo,
         message: form.message,
       });
       setErrors({});
@@ -51,7 +54,9 @@ const ContactUs = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
     if (handleValidation()) {
+      setIsSubmitting(true);
       try {
         await axios.post('https://api-accnt.wazl.in/ContactUs/Add', form);
         setContactSuccess(true);
@@ -59,6 +64,8 @@ const ContactUs = () => {
         setTimeout(() => setContactSuccess(false), 3000);
       } catch (error) {
         console.error('Form submission error:', error);
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
@@ -112,8 +119,8 @@ const ContactUs = () => {
                       onChange={handleChange}
                       className="w-full border-gray-300 rounded-none"
                     />
-                    {errors.email && (
-                      <div className="text-red-500 text-xs mt-2">{errors.email}</div>
+                    {errors.emailId && (
+                      <div className="text-red-500 text-xs mt-2">{errors.emailId}</div>
                     )}
                   </div>
                 </div>
@@ -134,8 +141,8 @@ const ContactUs = () => {
                       onChange={handleChange}
                       className="block w-full border-gray-300 rounded-none"
                     />
-                    {errors.mobile && (
-                      <div className="text-red-500 text-xs mt-2">{errors.mobile}</div>
+                    {errors.mobileNo && (
+                      <div className="text-red-500 text-xs mt-2">{errors.mobileNo}</div>
                     )}
                   </div>
                 </div>
@@ -164,8 +171,9 @@ const ContactUs = () => {
                 <Button
                   type="submit"
                   className="btn primary-btn bg-primaryRed text-white px-6 py-3 rounded mt-3"
+                  disabled={isSubmitting}
                 >
-                  Submit
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
                 </Button>
               </form>
               {contactSuccess && (
@@ -218,3 +226,4 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+
