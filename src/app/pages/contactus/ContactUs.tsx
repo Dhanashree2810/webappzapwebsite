@@ -13,15 +13,18 @@ type ValidationErrors = Record<string, string>;
 const ContactUs = () => {
   const [form, setForm] = useState({
     name: '',
-    email: '',
+    emailId: '',
     mobileNo: '',
     message: '',
   });
   const [contactSuccess, setContactSuccess] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm(prevForm => ({ ...prevForm, [name]: value }));
+    setErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
   };
 
 
@@ -29,8 +32,8 @@ const ContactUs = () => {
     try {
       globalschema.parse({
         name: form.name,
-        email: form.email,
-        mobile: form.mobileNo,
+        emailId: form.emailId,
+        mobileNo: form.mobileNo,
         message: form.message,
       });
       setErrors({});
@@ -51,14 +54,18 @@ const ContactUs = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
     if (handleValidation()) {
+      setIsSubmitting(true);
       try {
         await axios.post('https://api-accnt.wazl.in/ContactUs/Add', form);
         setContactSuccess(true);
-        setForm({ name: '', email: '', mobileNo: '', message: '' });
+        setForm({ name: '', emailId: '', mobileNo: '', message: '' });
         setTimeout(() => setContactSuccess(false), 3000);
       } catch (error) {
         console.error('Form submission error:', error);
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
@@ -91,7 +98,7 @@ const ContactUs = () => {
                       id="validationName"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Please Enter Your Name *"
+                      placeholder="Please Enter Your Name"
                       className="w-full border-gray-300 rounded-none"
                     />
                     {errors.name && (
@@ -104,16 +111,16 @@ const ContactUs = () => {
                       Email *
                     </Label>
                     <Input
-                      type="email"
-                      name="email"
+                      type="emailId"
+                      name="emailId"
                       id="validationEmail"
                       placeholder="Please Enter Your Email"
-                      value={form.email}
+                      value={form.emailId}
                       onChange={handleChange}
                       className="w-full border-gray-300 rounded-none"
                     />
-                    {errors.email && (
-                      <div className="text-red-500 text-xs mt-2">{errors.email}</div>
+                    {errors.emailId && (
+                      <div className="text-red-500 text-xs mt-2">{errors.emailId}</div>
                     )}
                   </div>
                 </div>
@@ -134,8 +141,8 @@ const ContactUs = () => {
                       onChange={handleChange}
                       className="block w-full border-gray-300 rounded-none"
                     />
-                    {errors.mobile && (
-                      <div className="text-red-500 text-xs mt-2">{errors.mobile}</div>
+                    {errors.mobileNo && (
+                      <div className="text-red-500 text-xs mt-2">{errors.mobileNo}</div>
                     )}
                   </div>
                 </div>
@@ -149,7 +156,7 @@ const ContactUs = () => {
                       name="message"
                       id="validationMessage"
                       maxLength={160}
-                      placeholder="Write Your Message *"
+                      placeholder="Write Your Message"
                       rows={6}
                       value={form.message}
                       onChange={handleChange}
@@ -164,8 +171,9 @@ const ContactUs = () => {
                 <Button
                   type="submit"
                   className="btn primary-btn bg-primaryRed text-white px-6 py-3 rounded mt-3"
+                  disabled={isSubmitting}
                 >
-                  Submit
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
                 </Button>
               </form>
               {contactSuccess && (
@@ -218,3 +226,4 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+
